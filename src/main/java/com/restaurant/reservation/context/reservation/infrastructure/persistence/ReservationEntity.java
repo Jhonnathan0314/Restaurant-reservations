@@ -1,5 +1,6 @@
 package com.restaurant.reservation.context.reservation.infrastructure.persistence;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,10 +40,12 @@ public class ReservationEntity {
 
     @Column(name = "reservation_date")
     @CreationTimestamp
+    @JsonFormat(pattern = "dd/mm/yyyy HH:mm:ss")
     private Timestamp reservationDate;
 
     @Column(name = "update_date")
     @UpdateTimestamp
+    @JsonFormat(pattern = "dd/mm/yyyy HH:mm:ss")
     private Timestamp updateDate;
 
 }
